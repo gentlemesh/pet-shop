@@ -1,0 +1,55 @@
+:root {
+    --color-text-base: rgb(40, 40, 40);
+    --color-primary: rgb(13, 80, 255);
+    --color-secondary: rgb(40, 40, 40);
+    --color-light-grey: rgb(241, 243, 244);
+    --color-medium-grey: rgb(221, 221, 221);
+    --color-grey: rgb(139, 139, 139);
+
+    --text-basic-font-family: "Montserrat", sans-serif;
+    --text-basic-font-size: 16px;
+    --text-basic-font-weight: 500;
+    --text-heading-font-size: 2rem;
+    --text-heading-font-weight: 700;
+    --text-heading-h2-font-size: 1.8rem;
+
+    --layout-padding-x: 20px;
+    --layout-max-width: 1440px;
+    --layout-section-padding-bottom: 80px;
+    --layout-radius-small: 6px;
+    --layout-radius-big: 12px;
+
+    font-family: var(--text-basic-font-family);
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: var(--text-basic-font-size);
+    font-weight: var(--text-basic-font-weight);
+}
+
+body {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-text-base);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media screen and (min-width: 900px) {
+    :root {
+        --text-basic-font-size: 20px;
+        --text-heading-font-size: 3.2rem;
+        --text-heading-h2-font-size: 2rem;
+
+        --layout-padding-x: 40px;
+    }
+}
