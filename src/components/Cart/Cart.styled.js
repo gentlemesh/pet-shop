@@ -1,31 +1,46 @@
 import styled from "@emotion/styled";
 import { Box, Button, Stack, Typography } from "@mui/material";
 
+const imageFlexSize = '200px';
+
 export const ItemsList = styled(Stack)(({ theme }) => ({
     gap: theme.spacing(2),
 }));
 
 export const ItemBlock = styled(Stack)(({ theme }) => ({
+    position: 'relative',
     border: `1px solid ${theme.palette.mediumGrey.main}`,
     borderRadius: theme.layout.radius.big,
-    flexDirection: 'row',
+    [theme.breakpoints.up('sm')]: {
+        flexDirection: 'row',
+    }
 }));
 
 export const ImageBox = styled(Box)(({ theme }) => ({
-    borderRight: `1px solid ${theme.palette.mediumGrey.main}`,
     borderTopLeftRadius: theme.layout.radius.big,
-    borderBottomLeftRadius: theme.layout.radius.big,
-    flex: '0 0 200px',
+    borderTopRightRadius: theme.layout.radius.big,
+    borderBottom: `1px solid ${theme.palette.mediumGrey.main}`,
+    flex: `0 0 ${imageFlexSize}`,
     minHeight: '180px',
     backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center top',
-    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundSize: 'auto 100%',
+    [theme.breakpoints.up('sm')]: {
+        borderTopRightRadius: 0,
+        borderBottomLeftRadius: theme.layout.radius.big,
+        borderBottom: 'none',
+        borderRight: `1px solid ${theme.palette.mediumGrey.main}`,
+        backgroundPosition: 'center top',
+        backgroundSize: 'cover',
+    },
 }));
 
 export const DataBox = styled(Box)(({ theme }) => ({
-    position: 'relative',
-    padding: `${theme.spacing(4)} ${theme.spacing(9)} ${theme.spacing(4)} ${theme.spacing(4)}`,
-    width: 'calc(100% - 200px)',
+    padding: theme.spacing(4),
+    [theme.breakpoints.up('sm')]: {
+        width: `calc(100% - ${imageFlexSize})`,
+        paddingRight: theme.spacing(9),
+    }
 }));
 
 export const ItemTitle = styled(Typography)(() => ({
@@ -51,11 +66,11 @@ export const ItemPrice = styled(Stack)(({ theme }) => ({
 }));
 
 export const RemoveItemBtn = styled(Button)(({ theme }) => ({
-    backgroundColor: 'transparent',
+    backgroundColor: theme.palette.background.main,
     color: theme.typography.body1.color,
     borderRadius: '100%',
-    '&:hover': {
-        backgroundColor: 'transparent',
+    '&:hover, &:focus:not(:hover)': {
+        backgroundColor: theme.palette.background.main,
     },
     boxSizing: 'border-box',
     minWidth: 'initial',

@@ -64,7 +64,7 @@ function CartForm() {
                     {cartItemsCount} {declension(cartItemsCount, ['item', 'items', 'items'])}
                 </OrderDataText>
 
-                <Stack flexDirection="row" justifyContent="space-between" alignItems="baseline">
+                <Stack flexDirection="row" flexWrap="wrap" justifyContent="space-between" alignItems="baseline">
                     <OrderDataText component="p" variant="bodyGrey">Total</OrderDataText>
                     <Typography component="p" variant="h1">
                         ${totalSum.replace('.', ',')}

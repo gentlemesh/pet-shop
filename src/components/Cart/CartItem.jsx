@@ -54,11 +54,11 @@ function CartItem({ item: { product: { id, title, image, price, discont_price },
                                 {discont_price && <Typography variant="bodyGrey" sx={{ textDecoration: 'line-through' }}>${price}</Typography>}
                             </ItemPrice>
                         </ItemValuesStack>
-
-                        <RemoveItemBtn onClick={handleItemRemove}>
-                            <CloseIcon fontSize="small" />
-                        </RemoveItemBtn>
                     </DataBox>
+
+                    <RemoveItemBtn onClick={handleItemRemove}>
+                        <CloseIcon fontSize="small" />
+                    </RemoveItemBtn>
                 </ItemBlock>
             </Link>
         </Slide>
