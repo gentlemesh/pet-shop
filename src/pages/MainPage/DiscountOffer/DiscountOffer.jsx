@@ -16,6 +16,7 @@ import {
     DiscountOfferFormButton,
 } from './DiscountOffer.styled';
 import CtaFormPets from '../../../assets/cta-form-pets.png';
+import validationRules from '../../../helpers/formValidationRules';
 
 function DiscountOffer() {
     const dispatch = useDispatch();
@@ -50,9 +51,7 @@ function DiscountOffer() {
                         label="Name"
                         placeholder="Name"
                         disabled={isAccepted}
-                        {...register('name', {
-                            required: "Name is required",
-                        })}
+                        {...register('name', validationRules.name)}
                     />
                     {errors.name && <DiscountOfferInputError color="error">{errors.name.message}</DiscountOfferInputError>}
 
@@ -60,13 +59,7 @@ function DiscountOffer() {
                         label="Phone Number"
                         placeholder="Phone Number"
                         disabled={isAccepted}
-                        {...register('phone', {
-                            required: "Phone number is required",
-                            pattern: {
-                                value: /^[\d\s+-]+$/i,
-                                message: "Invalid phone number"
-                            },
-                        })}
+                        {...register('phone', validationRules.phone)}
                     />
                     {errors.phone && <DiscountOfferInputError color="error">{errors.phone.message}</DiscountOfferInputError>}
 
@@ -74,13 +67,7 @@ function DiscountOffer() {
                         label="Email"
                         placeholder="Email"
                         disabled={isAccepted}
-                        {...register('email', {
-                            required: "Email is required",
-                            pattern: {
-                                value: /^\S+@\S+$/i,
-                                message: "Invalid email address"
-                            },
-                        })}
+                        {...register('email', validationRules.email)}
                     />
                     {errors.email && <DiscountOfferInputError color="error">{errors.email.message}</DiscountOfferInputError>}
 
