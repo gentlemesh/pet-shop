@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Box } from "@mui/material";
 
 import { fetchAllCategories } from '../../../redux/actions/categories';
+import { selectCategories } from '../../../redux/reducers/categories';
 import TitleDivider from '../../../components/Common/TitleDivider/TitleDivider';
 import CategoryList from '../../../components/Categories/CategoryList';
 
@@ -13,7 +14,7 @@ function MainCategories() {
         dispatch(fetchAllCategories())
     }, [dispatch]);
 
-    const categories = useSelector(state => state.categories.categories)?.slice(0, 4);
+    const categories = useSelector(selectCategories)?.slice(0, 4);
 
     return (
         <Box>
